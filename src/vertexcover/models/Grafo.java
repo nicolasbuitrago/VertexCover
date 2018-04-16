@@ -24,6 +24,8 @@ public class Grafo {
     public ArrayList<Nodo> grados;
     private int color;
     
+    private ArrayList<Nodo> vertexCover;
+    
     public static final Color[] colors ={Color.BLUE,Color.GREEN,Color.RED,Color.YELLOW,Color.PINK,Color.MAGENTA,Color.ORANGE,Color.GRAY,Color.DARK_GRAY};
 
     public Grafo() {
@@ -157,6 +159,34 @@ public class Grafo {
                 //grados.get(i).setColor(colors[color++]);
             }
         }
+        
+    }
+    
+    public void vertexCover(){
+        if (vertexCover == null) {
+            vertexCover = new ArrayList();
+            grados.sort(Nodo.CompNodos());
+            ArrayList<Arco> a1 = new ArrayList();
+            ArrayList<Arco> a2 = new ArrayList(arcos);
+            for (int i = 0; i < 10; i++) {
+                if(!a2.isEmpty()){
+                    vertexCover.add(grados.get(i));
+                    int name = grados.get(i).name;
+                    for (int j = 0; j < adyacencia[name].length; j++) {
+                        if(adyacencia[name][j] == 1){
+                            
+                        }
+                    }
+                    for (Arco arco : a2) {
+                        if()
+                    }
+                }else{
+                    return;
+                }
+            }
+        }
+       
+        
         
     }
     

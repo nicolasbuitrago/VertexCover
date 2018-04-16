@@ -85,6 +85,7 @@ public class Controller {
             }
         } catch (Exception e) {
             System.out.println("Error Controller getGrafo =    "+e.getMessage());
+            JOptionPane.showMessageDialog(this.p, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }finally{
             try {
                 if (frg != null) {
