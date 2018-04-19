@@ -91,6 +91,39 @@ public class Nodo implements Comparable<Nodo> {
         };
         return comp;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + this.name;
+        hash = 37 * hash + this.x;
+        hash = 37 * hash + this.y;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Nodo other = (Nodo) obj;
+        if (this.name != other.name) {
+            return false;
+        }
+        if (this.x != other.x) {
+            return false;
+        }
+        if (this.y != other.y) {
+            return false;
+        }
+        return true;
+    }
     
     
 }

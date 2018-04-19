@@ -24,7 +24,7 @@ public class Grafo {
     public ArrayList<Nodo> grados;
     private int color;
     
-    private ArrayList<Nodo> vertexCover;
+    public ArrayList<Nodo> vertexCover;
     
     public static final Color[] colors ={Color.BLUE,Color.GREEN,Color.RED,Color.YELLOW,Color.PINK,Color.MAGENTA,Color.ORANGE,Color.GRAY,Color.DARK_GRAY};
 
@@ -107,7 +107,7 @@ public class Grafo {
                 grados.add(nodo);
             }
         }
-        this.printAdyacencia();
+//        this.printAdyacencia();
     }
     
     public void printAdyacencia(){
@@ -164,6 +164,7 @@ public class Grafo {
     
     public void vertexCover(){
         if (vertexCover == null) {
+            this.adyacencia();
             vertexCover = new ArrayList();
             grados.sort(Nodo.CompNodos());
             ArrayList<Arco> a1 = new ArrayList();
@@ -178,9 +179,7 @@ public class Grafo {
                             e.add(new Arco(grados.get(i),nodos.get(j)));
                         }
                     }
-                    for (Arco arco : a2) {
-                        if()
-                    }
+                    a2.removeAll(e);
                 }else{
                     return;
                 }

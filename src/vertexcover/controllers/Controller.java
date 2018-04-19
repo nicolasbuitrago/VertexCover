@@ -143,11 +143,11 @@ public class Controller {
         g.setStroke(new BasicStroke(5));
         
         for (Arco arco : grafo.getArcos()) {
-            drawArco(g,arco);System.out.println(arco);
+            drawArco(g,arco);//System.out.println(arco);
         }
         
         for (Nodo nodo : grafo.getNodos()) {
-            drawNodo(g,nodo,Integer.toString(nodo.getName()));System.out.println(nodo);
+            drawNodo(g,nodo,Integer.toString(nodo.getName()));//System.out.println(nodo);
         }
         
 //        g.dispose();
@@ -156,6 +156,34 @@ public class Controller {
 ////        panel.paintComponent(g);
 //        g.drawImage(img, 0, 0, null);
 //        panel.repaint();
+    }
+    
+    public void paintGrafoVertexCover() {
+        System.out.println("Dibujando grafo");
+        Graphics2D g = (Graphics2D) this.panel.getGraphics();
+//        Graphics g = this.panel.getGraphics();
+        g.setColor(Color.BLACK);
+        g.setStroke(new BasicStroke(5));
+        
+        for (Arco arco : grafo.getArcos()) {
+            drawArco(g,arco);//System.out.println(arco);
+        }
+  
+        for (Nodo nodo : grafo.getNodos()) {
+            drawNodoVC(g,nodo,Integer.toString(nodo.getName()));//System.out.println(nodo);
+        }
+    }
+    
+    private void drawNodoVC(Graphics2D g,Nodo nodo, String s){
+        if (grafo.vertexCover.contains(nodo)) {
+            g.setColor(Color.RED);System.out.println(nodo);
+        }else{
+            g.setColor(Color.BLACK);
+        }
+        g.fillOval(nodo.getX(), nodo.getY(), Grafo.TAM_NODOS, Grafo.TAM_NODOS);
+        g.setColor(Color.white);
+        g.drawString(s, nodo.getX()+Grafo.TAM_NODOS/2.5f, nodo.getY()+Grafo.TAM_NODOS/1.4f);
+//        g.drawString(s, nodo.getX(), nodo.getY());
     }
     
     /**
