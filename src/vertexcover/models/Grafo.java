@@ -70,7 +70,7 @@ public class Grafo {
         return nodoR;
     }
     
-    public int distancia(int x1, int y1, int x2, int y2){
+    public static int distancia(int x1, int y1, int x2, int y2){
         return (int) Math.sqrt(Math.pow(x2-x1, 2.0)+Math.pow(y2-y1, 2.0));
     }
     
@@ -169,12 +169,13 @@ public class Grafo {
             ArrayList<Arco> a1 = new ArrayList();
             ArrayList<Arco> a2 = new ArrayList(arcos);
             for (int i = 0; i < 10; i++) {
+                ArrayList<Arco> e = new ArrayList();
                 if(!a2.isEmpty()){
                     vertexCover.add(grados.get(i));
                     int name = grados.get(i).name;
                     for (int j = 0; j < adyacencia[name].length; j++) {
                         if(adyacencia[name][j] == 1){
-                            
+                            e.add(new Arco(grados.get(i),nodos.get(j)));
                         }
                     }
                     for (Arco arco : a2) {

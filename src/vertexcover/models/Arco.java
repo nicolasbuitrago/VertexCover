@@ -5,6 +5,8 @@
  */
 package vertexcover.models;
 
+import java.util.Objects;
+
 /**
  *
  * @author nicolasbuitrago
@@ -23,15 +25,15 @@ public class Arco {
         this.dist = distancia;
     }
     
-//    public Arco(Nodo nodoInicial, Nodo nodoFinal) {
-//        this.nodoInicial = nodoInicial;
-//        this.nodoFinal = nodoFinal;
-//        this.x1 = nodoInicial.getX() + Grafo.TAM_NODOS / 2;
-//        this.y1 = nodoInicial.getY() + Grafo.TAM_NODOS / 2;
-//        this.x2 = nodoFinal.getX() + Grafo.TAM_NODOS / 2;
-//        this.y2 = nodoFinal.getY() + Grafo.TAM_NODOS / 2;
-//        this.dist = Grafo.distancia(nodoInicial, nodoFinal);
-//    }
+    public Arco(Nodo nodoInicial, Nodo nodoFinal) {
+        this.nodoInicial = nodoInicial;
+        this.nodoFinal = nodoFinal;
+        this.x1 = nodoInicial.getX() + Grafo.TAM_NODOS / 2;
+        this.y1 = nodoInicial.getY() + Grafo.TAM_NODOS / 2;
+        this.x2 = nodoFinal.getX() + Grafo.TAM_NODOS / 2;
+        this.y2 = nodoFinal.getY() + Grafo.TAM_NODOS / 2;
+        this.dist = Grafo.distancia(nodoInicial.x,nodoInicial.y,nodoFinal.x,nodoFinal.y);
+    }
 
     public Nodo getNodoInicial() {
         return nodoInicial;
@@ -89,6 +91,53 @@ public class Arco {
     public String toString() {
 //        return  + "," + y1 + "," + x2 + "," + y2 + "," + dist;
         return x1 + "," + y1 + "," + x2 + "," + y2 + "," + dist;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.x1;
+        hash = 97 * hash + this.y1;
+        hash = 97 * hash + this.x2;
+        hash = 97 * hash + this.y2;
+        hash = 97 * hash + this.dist;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Arco other = (Arco) obj;
+//        if (this.x1 != other.x1) {
+//            return false;
+//        }
+//        if (this.y1 != other.y1) {
+//            return false;
+//        }
+//        if (this.x2 != other.x2) {
+//            return false;
+//        }
+//        if (this.y2 != other.y2) {
+//            return false;
+//        }
+        if (this.dist != other.dist) {
+            return false;
+        }
+        if (!Objects.equals(this.nodoInicial, other.nodoInicial)&&!Objects.equals(this.nodoInicial, other.nodoFinal)) {
+            return false;
+        }
+        if (!Objects.equals(this.nodoFinal, other.nodoFinal)&&!Objects.equals(this.nodoInicial, other.nodoFinal)) {
+            return false;
+        }
+        return true;
     }
     
 }
