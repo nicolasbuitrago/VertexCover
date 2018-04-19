@@ -176,7 +176,7 @@ public class Controller {
     
     private void drawNodoVC(Graphics2D g,Nodo nodo, String s){
         if (grafo.vertexCover.contains(nodo)) {
-            g.setColor(Color.RED);System.out.println(nodo);
+            g.setColor(Color.RED);//System.out.println(nodo);
         }else{
             g.setColor(Color.BLACK);
         }
