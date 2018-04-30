@@ -169,7 +169,7 @@ public class Grafo {
             grados.sort(Nodo.CompNodos());
             ArrayList<Arco> a1 = new ArrayList();
             ArrayList<Arco> a2 = new ArrayList(arcos);
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < grados.size(); i++) {
                 ArrayList<Arco> e = new ArrayList();
                 if(!a2.isEmpty()){
                     vertexCover.add(grados.get(i));
